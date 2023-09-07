@@ -1,4 +1,5 @@
 import json
+import numpy as np
 import pinecone
 
 from constants import *
@@ -10,7 +11,6 @@ class Database:
         config = json.loads(config)[name]
         pinecone.init(api_key = config['key'], environment = config['environment'])
         self.index = pinecone.Index(name)
-        print(self.index)
 
     def get_indexes(self):
         print(self.cone.list_indexes())
@@ -30,13 +30,12 @@ class Database:
         if (index not in INDEX):
             print('Wrong index. Please pick one from {}'.format(INDEX))
             return
-        # if (len(value) != MODELS[model]['shape']):
-        #     print('Length of value should be {}'.format(MODELS[model]['shape']))
-        #     return
+        if (len(value) != MODELS[model]['shape']):
+            print('Length of value should be {}'.format(MODELS[model]['shape']))
+            return
         self.index.upsert([
-            (key, list(value))
+            (key, value)
         ])
-        input()
 
     def query(self, value, index = 'all', model = 'mpnet_base_v2', k = 5):
         if (index not in INDEX):

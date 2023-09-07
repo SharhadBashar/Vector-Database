@@ -1,5 +1,22 @@
 {
-    "name": "default",
-    "environment": "gcp-starter",
-    "key": "888145d0-84f2-40eb-af82-718fb74d79ca"
+    "podcast": {
+        "name": "default",
+        "environment": "gcp-starter",
+        "key": "888145d0-84f2-40eb-af82-718fb74d79ca"
+    },
+    "episode": {
+        "name": "default",
+        "environment": "gcp-starter",
+        "key": ""
+    },
+    "description": {
+        "name": "default",
+        "environment": "gcp-starter",
+        "key": ""
+    },
+    "all": {
+        "name": "default",
+        "environment": "gcp-starter",
+        "key": ""
+    }
 }

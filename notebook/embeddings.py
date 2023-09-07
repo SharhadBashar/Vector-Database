@@ -10,7 +10,7 @@ class Embeddings:
         return embedding.shape
 
     def get_embedding(self, sentence):
-        return self.model.encode(sentence).tolist()
+        return self.model.encode(sentence)
 
     def get_embeddings(self, sentences):
-        return self.model.encode(sentences).tolist()
+        return self.model.encode(sentences)

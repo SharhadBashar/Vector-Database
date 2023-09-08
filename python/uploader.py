@@ -1,5 +1,4 @@
 import os
-import numpy as np
 import pandas as pd
 from tqdm import tqdm
 
@@ -13,9 +12,9 @@ class Uploader:
 
     def upload_embeddings(self, data):
         embeddings = Embeddings()
-        db = Database(name = 'podcast')
+        db = Database(name = data.split('.')[0])
         df = pd.read_csv(os.path.join(PATH_DATA, data))
         
         for index, row in tqdm(df.iterrows(), total = df.shape[0]):
-            vector = embeddings.get_embedding(row['PodcastName'])
-            db.write(row['PodcastName'], vector, index = 'podcast')
+            vector = embeddings.get_embedding(row['title'])
+            db.write(row['title'], vector, index = data.split('.')[0])

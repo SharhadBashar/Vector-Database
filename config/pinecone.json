@@ -7,16 +7,16 @@
     "episode": {
         "name": "default",
         "environment": "gcp-starter",
-        "key": ""
+        "key": "4a930bf3-cd87-4bac-b31c-24bd1c6cfa16"
     },
     "description": {
         "name": "default",
         "environment": "gcp-starter",
-        "key": ""
+        "key": "d66774d0-8e06-453d-9b6e-ed60c7a9f40f"
     },
     "all": {
         "name": "default",
         "environment": "gcp-starter",
-        "key": ""
+        "key": "d7830dba-3b88-4947-a54a-8b6bf2c82361"
     }
 }

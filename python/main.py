@@ -13,7 +13,7 @@ if __name__ == '__main__':
         instruction = sys.argv[1].lower()
         data = sys.argv[2].lower()
     except IndexError:
-        print('No instructions or data given. Please type -u, -p, -e, -d')
+        print('No instructions or data given. Please type -u, -p, -e, -d, -a')
         exit()
     
     if (instruction == '-u'):
@@ -32,3 +32,7 @@ if __name__ == '__main__':
         elif (instruction == '-d'):
             db = Database(name = 'description')
             pprint(print_query(db.query(vector, index = 'description'), data))
+
+        elif (instruction == '-a'):
+            db = Database(name = 'all')
+            pprint(print_query(db.query(vector, index = 'all'), data))

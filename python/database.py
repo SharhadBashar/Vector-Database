@@ -39,7 +39,7 @@ class Database:
             ])
         except Exception as e:
             with open(PATH_DUMP_TXT, 'a') as error_file:
-                error_file.write(key)
+                error_file.write(key + '\n')
 
     def query(self, value, index = 'all', model = 'mpnet_base_v2', k = 5):
         if (index not in INDEX):

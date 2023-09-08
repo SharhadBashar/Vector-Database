@@ -1,6 +1,6 @@
 import json
-import numpy as np
 import pinecone
+import numpy as np
 
 from constants import *
 
@@ -33,9 +33,13 @@ class Database:
         if (len(value) != MODELS[model]['shape']):
             print('Length of value should be {}'.format(MODELS[model]['shape']))
             return
-        self.index.upsert([
-            (key, value)
-        ])
+        try:
+            self.index.upsert([
+                (key, value)
+            ])
+        except Exception as e:
+            with open(PATH_DUMP_TXT, 'a') as error_file:
+                error_file.write(key)
 
     def query(self, value, index = 'all', model = 'mpnet_base_v2', k = 5):
         if (index not in INDEX):

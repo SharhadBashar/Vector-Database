@@ -5,7 +5,7 @@ import numpy as np
 from constants import *
 
 class Database:
-    def __init__(self, name = 'podcast'):
+    def __init__(self, name = 'all'):
         with open(PATH_CONFIG_PINECONE) as config_file:
             config = config_file.read()
         config = json.loads(config)[name]

@@ -44,12 +44,12 @@ class Database:
     def query(self, value, index = 'all', model = 'mpnet_base_v2', k = 5):
         if (index not in INDEX):
             return ('Wrong index. Please pick one from {}'.format(INDEX))
-        if (value.shape != MODELS[model]['shape']):
+        if (len(value) != MODELS[model]['shape']):
             return ('Length of value should be {}'.format(MODELS[model]['shape']))
         return self.index.query(
             vector = value,
             top_k = k,
-            include_values = True
+            include_values = False
         )
 
     def delete_index(self, index_name):

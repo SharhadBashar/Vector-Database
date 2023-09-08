@@ -1,5 +1,7 @@
 import sys
+from pprint import pprint
 
+from helper import *
 from database import Database
 from uploader import Uploader
 from embeddings import Embeddings
@@ -21,12 +23,12 @@ if __name__ == '__main__':
         vector = embeddings.get_embedding(data)
         if (instruction == '-p'):
             db = Database(name = 'podcast')
-            print(db.query(vector, index = 'podcast'))
+            pprint(print_query(db.query(vector, index = 'podcast'), data))
 
         elif (instruction == '-e'):
             db = Database(name = 'episode')
-            print(db.query(vector, index = 'episode'))
+            pprint(print_query(db.query(vector, index = 'episode'), data))
 
         elif (instruction == '-d'):
             db = Database(name = 'description')
-            print(db.query(vector, index = 'description'))
+            pprint(print_query(db.query(vector, index = 'description'), data))

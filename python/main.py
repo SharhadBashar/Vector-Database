@@ -7,11 +7,11 @@ from uploader import Uploader
 from embeddings import Embeddings
 
 if __name__ == '__main__':
-    
-    embeddings = Embeddings()
     try:
         instruction = sys.argv[1].lower()
-        data = sys.argv[2].lower()
+        data = sys.argv[2:]
+        data = ' '.join(data)
+        data = data.lower()
     except IndexError:
         print('No instructions or data given. Please type -u, -p, -e, -d, -a')
         exit()
@@ -20,6 +20,7 @@ if __name__ == '__main__':
         Uploader(data)
     
     else:
+        embeddings = Embeddings()
         vector = embeddings.get_embedding(data)
         if (instruction == '-p'):
             db = Database(name = 'podcast')

@@ -1,4 +1,5 @@
 import json
+import uuid
 import pinecone
 import numpy as np
 
@@ -33,11 +34,14 @@ class Database:
         if (len(value) != MODELS[model]['shape']):
             print('Length of value should be {}'.format(MODELS[model]['shape']))
             return
+        if (len(key) > 512):
+            key = str(uuid.uuid4())
         try:
             self.index.upsert([
                 (key, value)
             ])
         except Exception as e:
+            print(e)
             with open(PATH_DUMP_TXT, 'a') as error_file:
                 error_file.write(key + '\n')
 

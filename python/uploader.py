@@ -16,5 +16,6 @@ class Uploader:
         df = pd.read_csv(os.path.join(PATH_DATA, data))
         
         for index, row in tqdm(df.iterrows(), total = df.shape[0]):
-            vector = embeddings.get_embedding(row['title'])
-            db.write(row['title'], vector, index = data.split('.')[0])
+            if (len(row['title']) > 0):
+                vector = embeddings.get_embedding(row['title'])
+                db.write(row['title'], vector, index = data.split('.')[0])

@@ -19,6 +19,10 @@ if __name__ == '__main__':
     if (instruction == '-u'):
         Uploader(data)
     
+    elif (instruction == '-data'):
+        db = Database(name = data)
+        db.get_index_info(index = data)
+
     else:
         embeddings = Embeddings()
         vector = embeddings.get_embedding(data)

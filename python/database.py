@@ -12,7 +12,7 @@ class Database:
         config = json.loads(config)[name]
         pinecone.init(api_key = config['key'], environment = config['environment'])
         self.index = pinecone.Index(name)
-
+    
     def get_indexes(self):
         print(self.cone.list_indexes())
 

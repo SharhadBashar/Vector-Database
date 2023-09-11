@@ -1,4 +1,5 @@
 import sys
+from time import time
 from pprint import pprint
 
 from helper import *
@@ -26,6 +27,8 @@ if __name__ == '__main__':
     else:
         embeddings = Embeddings()
         vector = embeddings.get_embedding(data)
+        start = time()
+        print()
         if (instruction == '-p'):
             db = Database(name = 'podcast')
             pprint(print_query(db.query(vector, index = 'podcast'), data))
@@ -41,3 +44,5 @@ if __name__ == '__main__':
         elif (instruction == '-a'):
             db = Database(name = 'all')
             pprint(print_query(db.query(vector, index = 'all'), data))
+        print()
+        print('Took {}s to find data'.format(round(time() - start, 2)))

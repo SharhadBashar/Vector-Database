@@ -19,3 +19,5 @@ class Uploader:
             if (len(row['title']) > 0):
                 vector = embeddings.get_embedding(row['title'])
                 db.write(row['title'], vector, index = data.split('.')[0])
+
+Uploader('description.csv')
